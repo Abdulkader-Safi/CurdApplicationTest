@@ -111,7 +111,7 @@
             this.tbxEmail.Location = new System.Drawing.Point(208, 175);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.Size = new System.Drawing.Size(494, 26);
-            this.tbxEmail.TabIndex = 10;
+            this.tbxEmail.TabIndex = 2;
             // 
             // label4
             // 
@@ -133,7 +133,7 @@
             this.tbxLastName.Location = new System.Drawing.Point(208, 143);
             this.tbxLastName.Name = "tbxLastName";
             this.tbxLastName.Size = new System.Drawing.Size(494, 26);
-            this.tbxLastName.TabIndex = 8;
+            this.tbxLastName.TabIndex = 1;
             // 
             // comboGender
             // 
@@ -148,7 +148,7 @@
             this.comboGender.Location = new System.Drawing.Point(208, 239);
             this.comboGender.Name = "comboGender";
             this.comboGender.Size = new System.Drawing.Size(494, 28);
-            this.comboGender.TabIndex = 7;
+            this.comboGender.TabIndex = 4;
             // 
             // btnAddAccount
             // 
@@ -158,7 +158,7 @@
             this.btnAddAccount.Location = new System.Drawing.Point(79, 273);
             this.btnAddAccount.Name = "btnAddAccount";
             this.btnAddAccount.Size = new System.Drawing.Size(623, 35);
-            this.btnAddAccount.TabIndex = 6;
+            this.btnAddAccount.TabIndex = 5;
             this.btnAddAccount.Text = "Add Account";
             this.btnAddAccount.UseVisualStyleBackColor = true;
             this.btnAddAccount.Click += new System.EventHandler(this.btnAddAccount_Click);
@@ -207,7 +207,7 @@
             this.tbxPhoneNumber.Location = new System.Drawing.Point(208, 207);
             this.tbxPhoneNumber.Name = "tbxPhoneNumber";
             this.tbxPhoneNumber.Size = new System.Drawing.Size(494, 26);
-            this.tbxPhoneNumber.TabIndex = 1;
+            this.tbxPhoneNumber.TabIndex = 3;
             this.tbxPhoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             // 
             // tbxFirstName
@@ -288,7 +288,7 @@
             this.btnGoBack.Location = new System.Drawing.Point(3, 380);
             this.btnGoBack.Name = "btnGoBack";
             this.btnGoBack.Size = new System.Drawing.Size(217, 35);
-            this.btnGoBack.TabIndex = 12;
+            this.btnGoBack.TabIndex = 6;
             this.btnGoBack.Text = "Go Back";
             this.btnGoBack.UseVisualStyleBackColor = true;
             this.btnGoBack.Click += new System.EventHandler(this.btnGoBack_Click);
