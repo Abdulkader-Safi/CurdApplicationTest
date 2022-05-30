@@ -8,21 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using System.Configuration;
-using System.Data.SqlClient;
+using CurdApplication.Models;
+using CurdApplication.Controller;
+
 
 
 namespace CurdApplication
 {
     public partial class Form1 : Form
     {
-
-        string connection;
-
+        accountsContraller contraller;
         public Form1()
         {
             InitializeComponent();
-            connection = ConfigurationManager.ConnectionStrings["testCrud"].ConnectionString;
+            contraller = new accountsContraller();
         }
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
@@ -44,25 +43,21 @@ namespace CurdApplication
             }
             else
             {
-                using (var dbConnection = new SqlConnection(connection))
-                {
-                    using (var dbCommand = new SqlCommand())
-                    {
-                        dbConnection.Open();
-                        dbCommand.Connection = dbConnection;
-                        dbCommand.CommandText = @"insert into accounts (fristName, lastName,email,phoneNumber,gender)
-                                            values
-                                            (@fName, @lName, @email, @phone, @gender)";
-                        dbCommand.Parameters.Add("@fName", SqlDbType.VarChar).Value = tbxFirstName.Text;
-                        dbCommand.Parameters.Add("@lName", SqlDbType.VarChar).Value = tbxLastName.Text;
-                        dbCommand.Parameters.Add("@email", SqlDbType.VarChar).Value = tbxEmail.Text;
-                        dbCommand.Parameters.Add("@phone", SqlDbType.Int).Value = Convert.ToInt32(tbxPhoneNumber.Text);
-                        dbCommand.Parameters.Add("@gender", SqlDbType.VarChar).Value = comboGender.Text;
-                        dbCommand.ExecuteNonQuery();
-                    }
-                }
+                accounts account = new accounts(tbxFirstName.Text, tbxLastName.Text, tbxEmail.Text, Convert.ToInt32(tbxPhoneNumber.Text), comboGender.Text);
+                contraller.addAccount(account);
+                tbxFirstName.Text = String.Empty;
+                tbxLastName.Text = String.Empty;
+                tbxEmail.Text = String.Empty;
+                tbxPhoneNumber.Text = String.Empty;
+                comboGender.Text = String.Empty;
             }
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var accounts = contraller.getAccounts();
+            dataGridView.DataSource = accounts;
         }
     }
 }
