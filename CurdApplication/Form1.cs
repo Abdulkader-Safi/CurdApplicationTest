@@ -22,7 +22,6 @@ namespace CurdApplication
         {
             InitializeComponent();
             contraller = new accountsContraller();
-            insertDataPanel.Enabled = false;
             getData();
         }
 
@@ -67,6 +66,7 @@ namespace CurdApplication
         {
             var accounts = contraller.getAccounts();
             dataGridView.DataSource = accounts;
+            insertDataPanel.Enabled = false;
         }
 
         private void btnGoBack_Click(object sender, EventArgs e)
