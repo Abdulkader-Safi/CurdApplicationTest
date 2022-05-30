@@ -22,6 +22,8 @@ namespace CurdApplication
         {
             InitializeComponent();
             contraller = new accountsContraller();
+            insertDataPanel.Enabled = false;
+            getData();
         }
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
@@ -50,14 +52,27 @@ namespace CurdApplication
                 tbxEmail.Text = String.Empty;
                 tbxPhoneNumber.Text = String.Empty;
                 comboGender.Text = String.Empty;
+                tabControl1.SelectedTab = tabPage1;
+                getData();
             }
-            
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAddData_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabPage2;
+            insertDataPanel.Enabled = true;
+        }
+
+        public void getData()
         {
             var accounts = contraller.getAccounts();
             dataGridView.DataSource = accounts;
+        }
+
+        private void btnGoBack_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabPage1;
+            insertDataPanel.Enabled = false;
         }
     }
 }

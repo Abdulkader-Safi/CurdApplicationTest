@@ -44,14 +44,17 @@
             this.tbxFirstName = new System.Windows.Forms.TextBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnAddData = new System.Windows.Forms.Button();
+            this.insertDataPanel = new System.Windows.Forms.Panel();
+            this.btnGoBack = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.insertDataPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -79,17 +82,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Controls.Add(this.tbxEmail);
-            this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Controls.Add(this.tbxLastName);
-            this.tabPage2.Controls.Add(this.comboGender);
-            this.tabPage2.Controls.Add(this.btnAddAccount);
-            this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.tbxPhoneNumber);
-            this.tabPage2.Controls.Add(this.tbxFirstName);
+            this.tabPage2.Controls.Add(this.insertDataPanel);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -104,7 +97,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(297, 187);
+            this.label5.Location = new System.Drawing.Point(149, 178);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 20);
             this.label5.TabIndex = 11;
@@ -115,9 +108,9 @@
             this.tbxEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxEmail.Location = new System.Drawing.Point(356, 184);
+            this.tbxEmail.Location = new System.Drawing.Point(208, 175);
             this.tbxEmail.Name = "tbxEmail";
-            this.tbxEmail.Size = new System.Drawing.Size(191, 26);
+            this.tbxEmail.Size = new System.Drawing.Size(494, 26);
             this.tbxEmail.TabIndex = 10;
             // 
             // label4
@@ -126,7 +119,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(255, 155);
+            this.label4.Location = new System.Drawing.Point(107, 146);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(95, 20);
             this.label4.TabIndex = 9;
@@ -137,9 +130,9 @@
             this.tbxLastName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbxLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxLastName.Location = new System.Drawing.Point(356, 152);
+            this.tbxLastName.Location = new System.Drawing.Point(208, 143);
             this.tbxLastName.Name = "tbxLastName";
-            this.tbxLastName.Size = new System.Drawing.Size(191, 26);
+            this.tbxLastName.Size = new System.Drawing.Size(494, 26);
             this.tbxLastName.TabIndex = 8;
             // 
             // comboGender
@@ -152,9 +145,9 @@
             this.comboGender.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.comboGender.Location = new System.Drawing.Point(356, 248);
+            this.comboGender.Location = new System.Drawing.Point(208, 239);
             this.comboGender.Name = "comboGender";
-            this.comboGender.Size = new System.Drawing.Size(191, 28);
+            this.comboGender.Size = new System.Drawing.Size(494, 28);
             this.comboGender.TabIndex = 7;
             // 
             // btnAddAccount
@@ -162,9 +155,9 @@
             this.btnAddAccount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnAddAccount.Location = new System.Drawing.Point(227, 282);
+            this.btnAddAccount.Location = new System.Drawing.Point(79, 273);
             this.btnAddAccount.Name = "btnAddAccount";
-            this.btnAddAccount.Size = new System.Drawing.Size(320, 35);
+            this.btnAddAccount.Size = new System.Drawing.Size(623, 35);
             this.btnAddAccount.TabIndex = 6;
             this.btnAddAccount.Text = "Add Account";
             this.btnAddAccount.UseVisualStyleBackColor = true;
@@ -176,7 +169,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(281, 251);
+            this.label3.Location = new System.Drawing.Point(133, 242);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 20);
             this.label3.TabIndex = 5;
@@ -188,7 +181,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(223, 219);
+            this.label2.Location = new System.Drawing.Point(75, 210);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(127, 20);
             this.label2.TabIndex = 4;
@@ -200,7 +193,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(254, 123);
+            this.label1.Location = new System.Drawing.Point(106, 114);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 20);
             this.label1.TabIndex = 3;
@@ -211,9 +204,9 @@
             this.tbxPhoneNumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbxPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxPhoneNumber.Location = new System.Drawing.Point(356, 216);
+            this.tbxPhoneNumber.Location = new System.Drawing.Point(208, 207);
             this.tbxPhoneNumber.Name = "tbxPhoneNumber";
-            this.tbxPhoneNumber.Size = new System.Drawing.Size(191, 26);
+            this.tbxPhoneNumber.Size = new System.Drawing.Size(494, 26);
             this.tbxPhoneNumber.TabIndex = 1;
             this.tbxPhoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             // 
@@ -222,13 +215,17 @@
             this.tbxFirstName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbxFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxFirstName.Location = new System.Drawing.Point(356, 120);
+            this.tbxFirstName.Location = new System.Drawing.Point(208, 111);
             this.tbxFirstName.Name = "tbxFirstName";
-            this.tbxFirstName.Size = new System.Drawing.Size(191, 26);
+            this.tbxFirstName.Size = new System.Drawing.Size(494, 26);
             this.tbxFirstName.TabIndex = 0;
             // 
             // dataGridView
             // 
+            this.dataGridView.AllowUserToAddRows = false;
+            this.dataGridView.AllowUserToDeleteRows = false;
+            this.dataGridView.AllowUserToOrderColumns = true;
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView.Location = new System.Drawing.Point(0, 0);
@@ -238,23 +235,12 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnAddData);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(786, 41);
             this.panel1.TabIndex = 2;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(566, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(217, 35);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel2
             // 
@@ -264,6 +250,48 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(786, 377);
             this.panel2.TabIndex = 3;
+            // 
+            // btnAddData
+            // 
+            this.btnAddData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnAddData.Location = new System.Drawing.Point(564, 3);
+            this.btnAddData.Name = "btnAddData";
+            this.btnAddData.Size = new System.Drawing.Size(217, 35);
+            this.btnAddData.TabIndex = 1;
+            this.btnAddData.Text = "Add Data";
+            this.btnAddData.UseVisualStyleBackColor = true;
+            this.btnAddData.Click += new System.EventHandler(this.btnAddData_Click);
+            // 
+            // insertDataPanel
+            // 
+            this.insertDataPanel.Controls.Add(this.btnGoBack);
+            this.insertDataPanel.Controls.Add(this.label1);
+            this.insertDataPanel.Controls.Add(this.label5);
+            this.insertDataPanel.Controls.Add(this.tbxFirstName);
+            this.insertDataPanel.Controls.Add(this.tbxEmail);
+            this.insertDataPanel.Controls.Add(this.tbxPhoneNumber);
+            this.insertDataPanel.Controls.Add(this.label4);
+            this.insertDataPanel.Controls.Add(this.label2);
+            this.insertDataPanel.Controls.Add(this.tbxLastName);
+            this.insertDataPanel.Controls.Add(this.label3);
+            this.insertDataPanel.Controls.Add(this.comboGender);
+            this.insertDataPanel.Controls.Add(this.btnAddAccount);
+            this.insertDataPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.insertDataPanel.Location = new System.Drawing.Point(3, 3);
+            this.insertDataPanel.Name = "insertDataPanel";
+            this.insertDataPanel.Size = new System.Drawing.Size(786, 418);
+            this.insertDataPanel.TabIndex = 12;
+            // 
+            // btnGoBack
+            // 
+            this.btnGoBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnGoBack.Location = new System.Drawing.Point(3, 380);
+            this.btnGoBack.Name = "btnGoBack";
+            this.btnGoBack.Size = new System.Drawing.Size(217, 35);
+            this.btnGoBack.TabIndex = 12;
+            this.btnGoBack.Text = "Go Back";
+            this.btnGoBack.UseVisualStyleBackColor = true;
+            this.btnGoBack.Click += new System.EventHandler(this.btnGoBack_Click);
             // 
             // Form1
             // 
@@ -276,10 +304,11 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.insertDataPanel.ResumeLayout(false);
+            this.insertDataPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -302,8 +331,10 @@
         private System.Windows.Forms.TextBox tbxLastName;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnAddData;
+        private System.Windows.Forms.Panel insertDataPanel;
+        private System.Windows.Forms.Button btnGoBack;
     }
 }
 
