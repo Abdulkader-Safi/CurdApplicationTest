@@ -12,6 +12,7 @@ namespace CurdApplication.Models
     
     public class accounts
     {
+        public int ID { get; set; }
         public string fName { get; set; }
         public string lName { get; set; }
         public string email { get; set; }

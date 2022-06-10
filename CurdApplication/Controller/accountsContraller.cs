@@ -17,7 +17,7 @@ namespace CurdApplication.Controller
         string connection = ConfigurationManager.ConnectionStrings["testCrud"].ConnectionString;
 
 
-        public List<accounts> getAccounts()
+        public List<accounts> GetAll()
         {
             var accounts = new List<accounts>();
             using (var dbConnection = new SqlConnection(connection))
@@ -26,17 +26,18 @@ namespace CurdApplication.Controller
                 {
                     dbConnection.Open();
                     dbCommand.Connection = dbConnection;
-                    dbCommand.CommandText = "Select * from accounts order by fristName";
+                    dbCommand.CommandText = "Select * from accounts order by ID";
                     using (SqlDataReader reader = dbCommand.ExecuteReader())
                     {
                         while (reader.Read())
                         {
                             var account = new accounts();
-                            account.fName = reader[0].ToString();
-                            account.lName = reader[1].ToString();
-                            account.email = reader[2].ToString();
-                            account.phone = (int)reader[3];
-                            account.gender = reader[4].ToString();
+                            account.ID = (int)reader[0];
+                            account.fName = reader[1].ToString();
+                            account.lName = reader[2].ToString();
+                            account.email = reader[3].ToString();
+                            account.phone = (int)reader[4];
+                            account.gender = reader[5].ToString();
                             accounts.Add(account);
                         }
                     }
@@ -45,7 +46,7 @@ namespace CurdApplication.Controller
             return accounts;
         }
 
-        public void addAccount(accounts account)
+        public void Add(accounts account)
         {
             using (var dbConnection = new SqlConnection(connection))
             {
@@ -61,9 +62,58 @@ namespace CurdApplication.Controller
                     dbCommand.Parameters.Add("@email", SqlDbType.VarChar).Value = account.email;
                     dbCommand.Parameters.Add("@phone", SqlDbType.Int).Value = Convert.ToInt32(account.phone);
                     dbCommand.Parameters.Add("@gender", SqlDbType.VarChar).Value = account.gender;
+
                     dbCommand.ExecuteNonQuery();
                 }
             }
         }
+
+        public void Update(accounts account, int ID)
+        {
+            using (var dbConnection = new SqlConnection(connection))
+            {
+                using (var dbCommand = new SqlCommand())
+                {
+                    dbConnection.Open();
+                    dbCommand.Connection = dbConnection;
+                    dbCommand.CommandText = @"update accounts SET
+		                                        fristName = @fName,
+		                                        lastName = @lName,
+		                                        email = @email,
+		                                        phoneNumber = @phone,
+		                                        gender = @gender
+		                                            WHERE ID = @ID;";
+
+                    dbCommand.Parameters.Add("@ID", SqlDbType.VarChar).Value = Convert.ToInt32(ID);
+
+                    dbCommand.Parameters.Add("@fName", SqlDbType.VarChar).Value = account.fName;
+                    dbCommand.Parameters.Add("@lName", SqlDbType.VarChar).Value = account.lName;
+                    dbCommand.Parameters.Add("@email", SqlDbType.VarChar).Value = account.email;
+                    dbCommand.Parameters.Add("@phone", SqlDbType.Int).Value = Convert.ToInt32(account.phone);
+                    dbCommand.Parameters.Add("@gender", SqlDbType.VarChar).Value = account.gender;
+
+                    dbCommand.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void Delete(int ID)
+        {
+            using (var dbConnection = new SqlConnection(connection))
+            {
+                using (var dbCommand = new SqlCommand())
+                {
+                    dbConnection.Open();
+                    dbCommand.Connection = dbConnection;
+                    dbCommand.CommandText = @"delete from accounts where ID = @ID;";
+
+                    dbCommand.Parameters.Add("@ID", SqlDbType.VarChar).Value = Convert.ToInt32(ID);
+
+                    dbCommand.ExecuteNonQuery();
+                }
+            }
+        }
+
+
     }
 }
