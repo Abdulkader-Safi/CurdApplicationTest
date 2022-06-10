@@ -23,7 +23,7 @@ namespace CurdApplication
         {
             InitializeComponent();
             contraller = new accountsContraller();
-            tabControl1.TabPages.Remove(tabPage2);
+            tabContraller.TabPages.Remove(tabPage2);
             getData();
         }
 
@@ -53,9 +53,9 @@ namespace CurdApplication
 
                     emptyFields();
 
-                    tabControl1.TabPages.Add(tabPage1);
-                    tabControl1.SelectedTab = tabPage1;
-                    tabControl1.TabPages.Remove(tabPage2);
+                    tabContraller.TabPages.Add(tabPage1);
+                    tabContraller.SelectedTab = tabPage1;
+                    tabContraller.TabPages.Remove(tabPage2);
                     getData();
                 }
             }
@@ -74,9 +74,9 @@ namespace CurdApplication
 
                     emptyFields();
 
-                    tabControl1.TabPages.Add(tabPage1);
-                    tabControl1.SelectedTab = tabPage1;
-                    tabControl1.TabPages.Remove(tabPage2);
+                    tabContraller.TabPages.Add(tabPage1);
+                    tabContraller.SelectedTab = tabPage1;
+                    tabContraller.TabPages.Remove(tabPage2);
                     getData();
                 }
             }
@@ -85,21 +85,21 @@ namespace CurdApplication
 
         private void btnAddData_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedTab = tabPage2;
-            tabControl1.TabPages.Add(tabPage2);
-            tabControl1.TabPages.Remove(tabPage1);
+            tabContraller.SelectedTab = tabPage2;
+            tabContraller.TabPages.Add(tabPage2);
+            tabContraller.TabPages.Remove(tabPage1);
             btnAddAccount.Text = "Add Account";
             insertDataPanel.Enabled = true;
         }
 
         private void btnGoBack_Click(object sender, EventArgs e)
         {
-            tabControl1.TabPages.Add(tabPage1);
-            tabControl1.SelectedTab = tabPage1;
+            tabContraller.TabPages.Add(tabPage1);
+            tabContraller.SelectedTab = tabPage1;
 
             emptyFields();
 
-            tabControl1.TabPages.Remove(tabPage2);
+            tabContraller.TabPages.Remove(tabPage2);
             insertDataPanel.Enabled = false;
         }
 
@@ -115,9 +115,9 @@ namespace CurdApplication
                 comboGender.Text = row.Cells[5].Value.ToString();
             }
 
-            tabControl1.TabPages.Add(tabPage2);
-            tabControl1.SelectedTab = tabPage2;
-            tabControl1.TabPages.Remove(tabPage1);
+            tabContraller.TabPages.Add(tabPage2);
+            tabContraller.SelectedTab = tabPage2;
+            tabContraller.TabPages.Remove(tabPage1);
 
             btnAddAccount.Text = "Update Account";
             insertDataPanel.Enabled = true;
@@ -130,6 +130,20 @@ namespace CurdApplication
                 ID = Convert.ToInt32(row.Cells[0].Value);
                 contraller.Delete(ID);
                 getData();
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if(tbxSearchName.Text == String.Empty)
+            {
+                getData();
+            }
+            else if(tbxSearchName.Text != String.Empty)
+            {
+                var accounts = contraller.Search(tbxSearchName.Text);
+                dataGridView.DataSource = accounts;
+                insertDataPanel.Enabled = false;
             }
         }
 

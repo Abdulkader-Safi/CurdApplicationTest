@@ -33,10 +33,10 @@ namespace CurdApplication.Controller
                         {
                             var account = new accounts();
                             account.ID = (int)reader[0];
-                            account.fName = reader[1].ToString();
-                            account.lName = reader[2].ToString();
+                            account.fristName = reader[1].ToString();
+                            account.lastName = reader[2].ToString();
                             account.email = reader[3].ToString();
-                            account.phone = (int)reader[4];
+                            account.phoneNumber = (int)reader[4];
                             account.gender = reader[5].ToString();
                             accounts.Add(account);
                         }
@@ -57,10 +57,10 @@ namespace CurdApplication.Controller
                     dbCommand.CommandText = @"insert into accounts (fristName, lastName,email,phoneNumber,gender)
                                             values
                                             (@fName, @lName, @email, @phone, @gender)";
-                    dbCommand.Parameters.Add("@fName", SqlDbType.VarChar).Value = account.fName;
-                    dbCommand.Parameters.Add("@lName", SqlDbType.VarChar).Value = account.lName;
+                    dbCommand.Parameters.Add("@fName", SqlDbType.VarChar).Value = account.fristName;
+                    dbCommand.Parameters.Add("@lName", SqlDbType.VarChar).Value = account.lastName;
                     dbCommand.Parameters.Add("@email", SqlDbType.VarChar).Value = account.email;
-                    dbCommand.Parameters.Add("@phone", SqlDbType.Int).Value = Convert.ToInt32(account.phone);
+                    dbCommand.Parameters.Add("@phone", SqlDbType.Int).Value = Convert.ToInt32(account.phoneNumber);
                     dbCommand.Parameters.Add("@gender", SqlDbType.VarChar).Value = account.gender;
 
                     dbCommand.ExecuteNonQuery();
@@ -86,10 +86,10 @@ namespace CurdApplication.Controller
 
                     dbCommand.Parameters.Add("@ID", SqlDbType.VarChar).Value = Convert.ToInt32(ID);
 
-                    dbCommand.Parameters.Add("@fName", SqlDbType.VarChar).Value = account.fName;
-                    dbCommand.Parameters.Add("@lName", SqlDbType.VarChar).Value = account.lName;
+                    dbCommand.Parameters.Add("@fName", SqlDbType.VarChar).Value = account.fristName;
+                    dbCommand.Parameters.Add("@lName", SqlDbType.VarChar).Value = account.lastName;
                     dbCommand.Parameters.Add("@email", SqlDbType.VarChar).Value = account.email;
-                    dbCommand.Parameters.Add("@phone", SqlDbType.Int).Value = Convert.ToInt32(account.phone);
+                    dbCommand.Parameters.Add("@phone", SqlDbType.Int).Value = Convert.ToInt32(account.phoneNumber);
                     dbCommand.Parameters.Add("@gender", SqlDbType.VarChar).Value = account.gender;
 
                     dbCommand.ExecuteNonQuery();
@@ -112,6 +112,38 @@ namespace CurdApplication.Controller
                     dbCommand.ExecuteNonQuery();
                 }
             }
+        }
+
+        public List<accounts> Search(string search)
+        {
+            var accounts = new List<accounts>();
+            using (var dbConnection = new SqlConnection(connection))
+            {
+                using (var dbCommand = new SqlCommand())
+                {
+                    dbConnection.Open();
+                    dbCommand.Connection = dbConnection;
+                    dbCommand.CommandText = @"Select * from accounts where fristName like '%@fName%';";
+
+                    dbCommand.Parameters.Add("@fName", SqlDbType.VarChar).Value = search.ToString();
+
+                    using (SqlDataReader reader = dbCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var account = new accounts();
+                            account.ID = (int)reader[0];
+                            account.fristName = reader[1].ToString();
+                            account.lastName = reader[2].ToString();
+                            account.email = reader[3].ToString();
+                            account.phoneNumber = (int)reader[4];
+                            account.gender = reader[5].ToString();
+                            accounts.Add(account);
+                        }
+                    }
+                }
+            }
+            return accounts;
         }
 
 

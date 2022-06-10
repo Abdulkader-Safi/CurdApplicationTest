@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabContraller = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView = new System.Windows.Forms.DataGridView();
@@ -50,25 +50,31 @@
             this.label3 = new System.Windows.Forms.Label();
             this.comboGender = new System.Windows.Forms.ComboBox();
             this.btnAddAccount = new System.Windows.Forms.Button();
-            this.tabControl1.SuspendLayout();
+            this.searchPanel = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.tbxSearchName = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tabContraller.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.insertDataPanel.SuspendLayout();
+            this.searchPanel.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabContraller
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(800, 450);
-            this.tabControl1.TabIndex = 0;
+            this.tabContraller.Controls.Add(this.tabPage1);
+            this.tabContraller.Controls.Add(this.tabPage2);
+            this.tabContraller.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabContraller.Location = new System.Drawing.Point(0, 0);
+            this.tabContraller.Name = "tabContraller";
+            this.tabContraller.SelectedIndex = 0;
+            this.tabContraller.Size = new System.Drawing.Size(800, 450);
+            this.tabContraller.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -84,7 +90,8 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dataGridView);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.searchPanel);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 44);
             this.panel2.Name = "panel2";
@@ -104,7 +111,7 @@
             this.dataGridView.Location = new System.Drawing.Point(0, 0);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
-            this.dataGridView.Size = new System.Drawing.Size(786, 377);
+            this.dataGridView.Size = new System.Drawing.Size(786, 335);
             this.dataGridView.TabIndex = 1;
             // 
             // panel1
@@ -322,15 +329,56 @@
             this.btnAddAccount.UseVisualStyleBackColor = true;
             this.btnAddAccount.Click += new System.EventHandler(this.btnAddAccount_Click);
             // 
+            // searchPanel
+            // 
+            this.searchPanel.Controls.Add(this.label6);
+            this.searchPanel.Controls.Add(this.tbxSearchName);
+            this.searchPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.searchPanel.Location = new System.Drawing.Point(0, 0);
+            this.searchPanel.Name = "searchPanel";
+            this.searchPanel.Size = new System.Drawing.Size(786, 42);
+            this.searchPanel.TabIndex = 2;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.dataGridView);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 42);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(786, 335);
+            this.panel3.TabIndex = 3;
+            // 
+            // tbxSearchName
+            // 
+            this.tbxSearchName.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.tbxSearchName.Dock = System.Windows.Forms.DockStyle.Right;
+            this.tbxSearchName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
+            this.tbxSearchName.Location = new System.Drawing.Point(115, 0);
+            this.tbxSearchName.Multiline = true;
+            this.tbxSearchName.Name = "tbxSearchName";
+            this.tbxSearchName.Size = new System.Drawing.Size(671, 42);
+            this.tbxSearchName.TabIndex = 0;
+            this.tbxSearchName.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
+            this.label6.Location = new System.Drawing.Point(3, 3);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(106, 31);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Search";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabContraller);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.tabControl1.ResumeLayout(false);
+            this.tabContraller.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
@@ -338,13 +386,16 @@
             this.tabPage2.ResumeLayout(false);
             this.insertDataPanel.ResumeLayout(false);
             this.insertDataPanel.PerformLayout();
+            this.searchPanel.ResumeLayout(false);
+            this.searchPanel.PerformLayout();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabContraller;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TextBox tbxFirstName;
@@ -366,6 +417,10 @@
         private System.Windows.Forms.Button btnGoBack;
         private System.Windows.Forms.Button btnDeleteData;
         private System.Windows.Forms.Button btnUpdateData;
+        private System.Windows.Forms.Panel searchPanel;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TextBox tbxSearchName;
+        private System.Windows.Forms.Label label6;
     }
 }
 
