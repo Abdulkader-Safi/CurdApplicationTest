@@ -33,7 +33,7 @@ namespace CurdApplication.Controller
                         {
                             var account = new accounts();
                             account.ID = (int)reader[0];
-                            account.fristName = reader[1].ToString();
+                            account.firstName = reader[1].ToString();
                             account.lastName = reader[2].ToString();
                             account.email = reader[3].ToString();
                             account.phoneNumber = (int)reader[4];
@@ -54,10 +54,10 @@ namespace CurdApplication.Controller
                 {
                     dbConnection.Open();
                     dbCommand.Connection = dbConnection;
-                    dbCommand.CommandText = @"insert into accounts (fristName, lastName,email,phoneNumber,gender)
+                    dbCommand.CommandText = @"insert into accounts (firstName, lastName,email,phoneNumber,gender)
                                             values
                                             (@fName, @lName, @email, @phone, @gender)";
-                    dbCommand.Parameters.Add("@fName", SqlDbType.VarChar).Value = account.fristName;
+                    dbCommand.Parameters.Add("@fName", SqlDbType.VarChar).Value = account.firstName;
                     dbCommand.Parameters.Add("@lName", SqlDbType.VarChar).Value = account.lastName;
                     dbCommand.Parameters.Add("@email", SqlDbType.VarChar).Value = account.email;
                     dbCommand.Parameters.Add("@phone", SqlDbType.Int).Value = Convert.ToInt32(account.phoneNumber);
@@ -77,7 +77,7 @@ namespace CurdApplication.Controller
                     dbConnection.Open();
                     dbCommand.Connection = dbConnection;
                     dbCommand.CommandText = @"update accounts SET
-		                                        fristName = @fName,
+		                                        firstName = @fName,
 		                                        lastName = @lName,
 		                                        email = @email,
 		                                        phoneNumber = @phone,
@@ -86,7 +86,7 @@ namespace CurdApplication.Controller
 
                     dbCommand.Parameters.Add("@ID", SqlDbType.VarChar).Value = Convert.ToInt32(ID);
 
-                    dbCommand.Parameters.Add("@fName", SqlDbType.VarChar).Value = account.fristName;
+                    dbCommand.Parameters.Add("@fName", SqlDbType.VarChar).Value = account.firstName;
                     dbCommand.Parameters.Add("@lName", SqlDbType.VarChar).Value = account.lastName;
                     dbCommand.Parameters.Add("@email", SqlDbType.VarChar).Value = account.email;
                     dbCommand.Parameters.Add("@phone", SqlDbType.Int).Value = Convert.ToInt32(account.phoneNumber);
@@ -123,7 +123,7 @@ namespace CurdApplication.Controller
                 {
                     dbConnection.Open();
                     dbCommand.Connection = dbConnection;
-                    dbCommand.CommandText = @"Select * from accounts where fristName like '%@fName%';";
+                    dbCommand.CommandText = @"Select * from accounts where firstName like '%@fName%';";
 
                     dbCommand.Parameters.Add("@fName", SqlDbType.VarChar).Value = search.ToString();
 
@@ -133,7 +133,7 @@ namespace CurdApplication.Controller
                         {
                             var account = new accounts();
                             account.ID = (int)reader[0];
-                            account.fristName = reader[1].ToString();
+                            account.firstName = reader[1].ToString();
                             account.lastName = reader[2].ToString();
                             account.email = reader[3].ToString();
                             account.phoneNumber = (int)reader[4];

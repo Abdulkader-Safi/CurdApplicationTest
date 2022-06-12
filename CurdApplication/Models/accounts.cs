@@ -13,7 +13,7 @@ namespace CurdApplication.Models
     public class accounts
     {
         public int ID { get; set; }
-        public string fristName { get; set; }
+        public string firstName { get; set; }
         public string lastName { get; set; }
         public string email { get; set; }
         public int phoneNumber { get; set; }
@@ -26,7 +26,7 @@ namespace CurdApplication.Models
 
         public accounts(string fName, string lName, string email, int phone, string gender)
         {
-            this.fristName = fName;
+            this.firstName = fName;
             this.lastName = lName;
             this.email = email;
             this.phoneNumber = phone;
