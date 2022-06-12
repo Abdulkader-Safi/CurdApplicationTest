@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using CurdApplication.Models;
 using CurdApplication.Controller;
 
@@ -139,7 +138,7 @@ namespace CurdApplication
             {
                 getData();
             }
-            else if(tbxSearchName.Text != String.Empty)
+            else
             {
                 var accounts = contraller.Search(tbxSearchName.Text);
                 dataGridView.DataSource = accounts;
@@ -161,7 +160,5 @@ namespace CurdApplication
             tbxEmail.Text = String.Empty;
             tbxPhoneNumber.Text = String.Empty;
         }
-
-        
     }
 }
