@@ -123,9 +123,7 @@ namespace CurdApplication.Controller
                 {
                     dbConnection.Open();
                     dbCommand.Connection = dbConnection;
-                    dbCommand.CommandText = @"Select * from accounts where firstName like '%@fName%';";
-
-                    dbCommand.Parameters.Add("@fName", SqlDbType.VarChar).Value = search.ToString();
+                    dbCommand.CommandText = @"Select * from accounts where firstName like '%" + search + "%';";
 
                     using (SqlDataReader reader = dbCommand.ExecuteReader())
                     {
