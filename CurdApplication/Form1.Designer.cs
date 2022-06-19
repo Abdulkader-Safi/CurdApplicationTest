@@ -31,7 +31,11 @@
             this.tabContraller = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.searchPanel = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbxSearchName = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnUpdateData = new System.Windows.Forms.Button();
             this.btnDeleteData = new System.Windows.Forms.Button();
@@ -50,19 +54,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.comboGender = new System.Windows.Forms.ComboBox();
             this.btnAddAccount = new System.Windows.Forms.Button();
-            this.searchPanel = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.tbxSearchName = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.tabContraller.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.searchPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.insertDataPanel.SuspendLayout();
-            this.searchPanel.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabContraller
@@ -98,6 +98,15 @@
             this.panel2.Size = new System.Drawing.Size(786, 377);
             this.panel2.TabIndex = 3;
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.dataGridView);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 42);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(786, 335);
+            this.panel3.TabIndex = 3;
+            // 
             // dataGridView
             // 
             this.dataGridView.AllowUserToAddRows = false;
@@ -111,8 +120,41 @@
             this.dataGridView.Location = new System.Drawing.Point(0, 0);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
+            this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(786, 335);
             this.dataGridView.TabIndex = 1;
+            // 
+            // searchPanel
+            // 
+            this.searchPanel.Controls.Add(this.label6);
+            this.searchPanel.Controls.Add(this.tbxSearchName);
+            this.searchPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.searchPanel.Location = new System.Drawing.Point(0, 0);
+            this.searchPanel.Name = "searchPanel";
+            this.searchPanel.Size = new System.Drawing.Size(786, 42);
+            this.searchPanel.TabIndex = 2;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
+            this.label6.Location = new System.Drawing.Point(5, 3);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(106, 31);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Search";
+            // 
+            // tbxSearchName
+            // 
+            this.tbxSearchName.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.tbxSearchName.Dock = System.Windows.Forms.DockStyle.Right;
+            this.tbxSearchName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
+            this.tbxSearchName.Location = new System.Drawing.Point(115, 0);
+            this.tbxSearchName.Multiline = true;
+            this.tbxSearchName.Name = "tbxSearchName";
+            this.tbxSearchName.Size = new System.Drawing.Size(671, 42);
+            this.tbxSearchName.TabIndex = 0;
+            this.tbxSearchName.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // panel1
             // 
@@ -329,47 +371,6 @@
             this.btnAddAccount.UseVisualStyleBackColor = true;
             this.btnAddAccount.Click += new System.EventHandler(this.btnAddAccount_Click);
             // 
-            // searchPanel
-            // 
-            this.searchPanel.Controls.Add(this.label6);
-            this.searchPanel.Controls.Add(this.tbxSearchName);
-            this.searchPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.searchPanel.Location = new System.Drawing.Point(0, 0);
-            this.searchPanel.Name = "searchPanel";
-            this.searchPanel.Size = new System.Drawing.Size(786, 42);
-            this.searchPanel.TabIndex = 2;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.dataGridView);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 42);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(786, 335);
-            this.panel3.TabIndex = 3;
-            // 
-            // tbxSearchName
-            // 
-            this.tbxSearchName.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.tbxSearchName.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tbxSearchName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
-            this.tbxSearchName.Location = new System.Drawing.Point(115, 0);
-            this.tbxSearchName.Multiline = true;
-            this.tbxSearchName.Name = "tbxSearchName";
-            this.tbxSearchName.Size = new System.Drawing.Size(671, 42);
-            this.tbxSearchName.TabIndex = 0;
-            this.tbxSearchName.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(5, 3);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(106, 31);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Search";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -381,14 +382,14 @@
             this.tabContraller.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            this.searchPanel.ResumeLayout(false);
+            this.searchPanel.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.insertDataPanel.ResumeLayout(false);
             this.insertDataPanel.PerformLayout();
-            this.searchPanel.ResumeLayout(false);
-            this.searchPanel.PerformLayout();
-            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
